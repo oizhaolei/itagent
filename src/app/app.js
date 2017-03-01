@@ -1,12 +1,39 @@
 import React from 'react';
-import {render} from 'react-dom';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import Main from './Main'; // Our custom react component
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { createStore } from 'redux';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
-// Needed for onTouchTap
-// http://stackoverflow.com/a/34015469/988941
+// Redux DevTools
+import DevTools from './containers/DevTools';
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
-// Render the main app react component into the app div.
-// For more details see: https://facebook.github.io/react/docs/top-level-api.html#react.render
-render(<Main />, document.getElementById('app'));
+import Main from './views/Main';
+import Chat from './views/Chat';
+import Tools from './views/Tools';
+import Me from './views/Me';
+import Login from './views/Login';
+
+import configureStore from './store/configureStore';
+
+const store = configureStore();
+
+ReactDOM.render(
+    <MuiThemeProvider>
+    <Provider store={store}>
+    <Router history={hashHistory} >
+      <Route path='/' component={Main} >
+        <IndexRoute component={Chat}/>
+        <Route path="/tools" component={Tools}/>
+        <Route path="/me" component={Me}/>
+      </Route>
+      <Route path='/login' component={Login}/>
+    </Router>
+    </Provider>
+    </MuiThemeProvider>
+    ,
+    document.getElementById('app')
+);
