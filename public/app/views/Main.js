@@ -3,7 +3,7 @@ import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-import Header from '../components/Header';
+import HeaderContainer from '../containers/HeaderContainer';
 import CardExampleWithAvatar from '../components/CardExampleWithAvatar';
 import BottomNavigationExampleSimple from '../components/BottomNavigationExampleSimple';
 
@@ -16,7 +16,7 @@ const styles = {
 
 const Main = ({ children}) => (
     <div>
-    <Header />
+    <HeaderContainer />
     <div style={styles.center_content}>
     {children}
     </div>

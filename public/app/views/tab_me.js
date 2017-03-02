@@ -11,13 +11,18 @@ import ActionAssignment from 'material-ui/svg-icons/action/assignment';
 import {blue500, yellow600} from 'material-ui/styles/colors';
 import EditorInsertChart from 'material-ui/svg-icons/editor/insert-chart';
 
+const data = {
+  name: '赵磊',
+  title: '系统工程师',
+  avatar: 'http://www.material-ui.com/images/jsa-128.jpg'
+};
 const Me = () => (
   <div>
   <Card>
     <CardHeader
-      title="赵磊"
-      subtitle="系统工程师"
-      avatar="http://www.material-ui.com/images/jsa-128.jpg"
+      title={data.name}
+      subtitle={data.title}
+      avatar={data.avatar}
     />
   </Card>
     <List>

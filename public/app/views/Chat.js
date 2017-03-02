@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import AutoComplete from 'material-ui/AutoComplete';
 
-import SearchBar from '../components/SearchBar';
+import BackBar from '../components/BackBar';
 
 const styles = {
     center_content: {
@@ -11,7 +11,7 @@ const styles = {
     }
 };
 
-class Search extends Component  {
+class Chat extends Component  {
     state = {
         dataSource: [],
     };
@@ -29,17 +29,11 @@ class Search extends Component  {
     render() {
         return (
             <div>
-            <SearchBar />
-            <div style={styles.center_content}>
-            <AutoComplete
-            hintText="Type anything"
-            dataSource={this.state.dataSource}
-            onUpdateInput={this.handleUpdateInput}
-            fullWidth={true}
-            />
-            </div>
+              <BackBar />
+              <div style={styles.center_content}>
+              </div>
             </div>
         );
     }
 }
-export default Search;
+export default Chat;
