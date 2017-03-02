@@ -11,11 +11,12 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
+import Login from './views/Login';
 import Main from './views/Main';
 import Chat from './views/Chat';
 import Tools from './views/Tools';
 import Me from './views/Me';
-import Login from './views/Login';
+import Search from './views/Search';
 
 import configureStore from './store/configureStore';
 
@@ -25,12 +26,13 @@ ReactDOM.render(
     <MuiThemeProvider>
     <Provider store={store}>
     <Router history={hashHistory} >
-      <Route path='/' component={Main} >
-        <IndexRoute component={Chat}/>
-        <Route path="/tools" component={Tools}/>
-        <Route path="/me" component={Me}/>
-      </Route>
-      <Route path='/login' component={Login}/>
+    <Route path='/' component={Main} >
+    <IndexRoute component={Chat}/>
+    <Route path="/tools" component={Tools}/>
+    <Route path="/me" component={Me}/>
+    </Route>
+    <Route path='/login' component={Login}/>
+    <Route path='/search' component={Search}/>
     </Router>
     </Provider>
     </MuiThemeProvider>

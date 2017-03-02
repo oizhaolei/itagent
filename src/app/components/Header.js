@@ -8,7 +8,7 @@ import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import Toggle from 'material-ui/Toggle';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import SearchIcon from 'material-ui/svg-icons/action/search';
 
 class Login extends Component {
   static muiName = 'FlatButton';
@@ -41,11 +41,12 @@ const Logged = (props) => (
    * This example is taking advantage of the composability of the `AppBar`
    * to render different components depending on the application state.
    */
-  class AppBarExampleComposition extends Component {
+  class Header extends Component {
     getStyles() {
       return {
         top: {
           position: 'fixed',
+          WebkitAppRegion: 'drag'
         }
       };
     }
@@ -64,10 +65,11 @@ const Logged = (props) => (
           <AppBar
         style={styles.top}
         title="IT Agent"
+        iconElementLeft={<IconButton onTouchTap={() => this.props.router.push('/search')}><SearchIcon /></IconButton>}
         iconElementRight={  <FlatButton label="Login" onTouchTap={() => this.props.router.push('/login')}/> }
           />
       );
     }
   }
 
-  export default withRouter(AppBarExampleComposition);
+  export default withRouter(Header);

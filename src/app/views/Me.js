@@ -43,7 +43,7 @@ const Me = () => (
     </List>
     <Divider inset={true} />
     <List>
-      <Subheader inset={true}>Files</Subheader>
+      <Subheader inset={true}>本机信息</Subheader>
       <ListItem
         leftAvatar={<Avatar icon={<ActionAssignment />} backgroundColor={blue500} />}
         rightIcon={<ActionInfo />}

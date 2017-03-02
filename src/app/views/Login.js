@@ -45,17 +45,16 @@ class Login extends Component {
         <div style={styles.center}>
           <Paper style={styles.paper}>
             <ActionAccountCicle style={{ height: 100, width: 100 }}/><br/>
+            <TextField ref='nickname'
+                       hintText='nickname'
+                       floatingLabelText='姓名'
+                       defaultValue='赵磊'
+                       onKeyDown={this.submit} /><br />
             <TextField ref='identity'
                        hintText='email'
-                       floatingLabelText='email'
-                       defaultValue='john.doe@example.com'
+                       floatingLabelText='邮箱'
+                       defaultValue='oizhaolei@gmail.com'
                        onKeyDown={this.submit} /><br/>
-            <TextField ref='password'
-                       hintText='password'
-                       floatingLabelText='password'
-                       type='password'
-                       defaultValue='qwertyuiop'
-                       onKeyDown={this.submit} /><br />
             <RaisedButton style={styles.submit}
         label='Submit'
         onTouchTap={() => this.props.router.push('/')}
