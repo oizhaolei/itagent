@@ -18,12 +18,14 @@ import Tools from './views/tab_tools';
 import Me from './views/tab_me';
 import Search from './views/Search';
 import Chat from './views/Chat';
+import PostsNew from './views/PostsNew';
+import PostsShow from './views/PostsShow';
 
 import configureStore from './store/configureStore';
 
 const store = configureStore();
 
-const devtools = (process.env.NODE_ENV === 'production') ? <DevTools store={store} /> : '';
+const devtools = (process.env.NODE_ENV === 'production') ? '' : <DevTools store={store} />;
 
 ReactDOM.render(
     <MuiThemeProvider>
@@ -35,9 +37,11 @@ ReactDOM.render(
             <Route path="/tools" component={Tools}/>
             <Route path="/me" component={Me}/>
           </Route>
+          <Route path="posts/new" component={PostsNew} />
+          <Route path="posts/:id" component={PostsShow} />
           <Route path='/login' component={Login}/>
           <Route path='/search' component={Search}/>
-          <Route path='/chat' component={Chat}/>
+          <Route path='/chat/:id' component={Chat}/>
         </Router>
       </Provider>
     {devtools}

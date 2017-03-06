@@ -7,13 +7,6 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import FlatButton from 'material-ui/FlatButton';
 
 class SearchBar extends Component {
-  getStyles() {
-    return {
-      top: {
-        position: 'fixed',
-      }
-    };
-  }
 
   state = {
     logged: true,
@@ -24,10 +17,8 @@ class SearchBar extends Component {
   };
 
   render() {
-    const styles = this.getStyles();
     return (
         <AppBar
-      style={styles.top}
       title="输入任意内容搜索"
       iconElementLeft={<IconButton onTouchTap={() => this.props.router.push('/')}><NavigationClose /></IconButton>}
         />

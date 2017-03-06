@@ -5,10 +5,13 @@ import AutoComplete from 'material-ui/AutoComplete';
 import BackBar from '../components/BackBar';
 
 const styles = {
-    center_content: {
-        paddingTop: '50px',
-        paddingBottom: '50px',
-    }
+  top: {
+    position: 'fixed',
+  },
+  center_content: {
+    paddingTop: '50px',
+    paddingBottom: '50px',
+  }
 };
 
 class Search extends Component {
@@ -29,7 +32,7 @@ class Search extends Component {
     render() {
         return (
             <div>
-            <BackBar />
+            <BackBar style={styles.top} />
             <div style={styles.center_content}>
             <AutoComplete
             hintText="Type anything"

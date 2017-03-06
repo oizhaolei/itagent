@@ -2,8 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { withRouter } from 'react-router';
 import { Field } from 'redux-form';
 
+import { TextField } from 'redux-form-material-ui';
 import Paper from 'material-ui/Paper';
-import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
 class SignInForm extends Component {
@@ -52,24 +52,15 @@ class SignInForm extends Component {
     const { pristine, handleSubmit, submitting } = this.props;
     const styles = this.getStyles();
 
-    const renderTextField = ({ input, label, meta: { touched, error }, ...custom }) => (
-        <TextField hintText={label}
-      floatingLabelText={label}
-      errorText={touched && error}
-      {...input}
-      {...custom}
-        />
-    );
-
     return (
         <div style={styles.center}>
           <Paper style={styles.paper}>
         <form onSubmit={handleSubmit}>
         <div>
-        <Field name="username" component={renderTextField} label="用户名"/>
+        <Field name="username" component={TextField} hintText="用户名"/>
         </div>
         <div>
-        <Field name="password" component={renderTextField} label="密码"/>
+        <Field name="password" type="password" component={TextField} hintText="密码"/>
         </div>
         <div>
         <RaisedButton type="submit" disabled={pristine || submitting} label="登录" primary={true}/>

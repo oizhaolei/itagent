@@ -20,6 +20,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const ContactsListContainer = connect(mapStateToProps, mapDispatchToProps)(ContactsList);
-
-export default ContactsListContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(ContactsList);
