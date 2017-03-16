@@ -2,6 +2,7 @@ import {
 	FETCH_POSTS, FETCH_POSTS_SUCCESS, FETCH_POSTS_FAILURE, RESET_POSTS,
 	FETCH_POST, FETCH_POST_SUCCESS,  FETCH_POST_FAILURE, RESET_ACTIVE_POST,
 	CREATE_POST, CREATE_POST_SUCCESS, CREATE_POST_FAILURE, RESET_NEW_POST,
+	EDIT_POST, EDIT_POST_SUCCESS, EDIT_POST_FAILURE, RESET_EDIT_POST,
 	DELETE_POST, DELETE_POST_SUCCESS, DELETE_POST_FAILURE, RESET_DELETED_POST,
   VALIDATE_POST_FIELDS,VALIDATE_POST_FIELDS_SUCCESS, VALIDATE_POST_FIELDS_FAILURE, RESET_POST_FIELDS
 } from '../actions/posts';
@@ -46,6 +47,17 @@ export default function(state = INITIAL_STATE, action) {
   	return {...state, newPost: {post:null, error:error, loading: false}}
   case RESET_NEW_POST:
   	return {...state,  newPost:{post:null, error:null, loading: false}}
+
+
+  case EDIT_POST:
+  	return {...state, editPost: {...state.editPost, loading: true}}
+  case EDIT_POST_SUCCESS:
+  	return {...state, editPost: {post:action.payload.data, error:null, loading: false}}
+  case EDIT_POST_FAILURE:
+    error = action.payload.data || {message: action.payload.message};//2nd one is network or server down errors
+  	return {...state, editPost: {post:null, error:error, loading: false}}
+  case RESET_EDIT_POST:
+  	return {...state,  editPost:{post:null, error:null, loading: false}}
 
 
   case DELETE_POST:

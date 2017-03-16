@@ -18,8 +18,9 @@ import Tools from './views/tab_tools';
 import Me from './views/tab_me';
 import Search from './views/Search';
 import Chat from './views/Chat';
-import PostsNew from './views/PostsNew';
-import PostsShow from './views/PostsShow';
+import PostNew from './views/PostNew';
+import PostShow from './views/PostShow';
+import PostEdit from './views/PostEdit';
 
 import configureStore from './store/configureStore';
 
@@ -37,8 +38,9 @@ ReactDOM.render(
             <Route path="/tools" component={Tools}/>
             <Route path="/me" component={Me}/>
           </Route>
-          <Route path="posts/new" component={PostsNew} />
-          <Route path="posts/:id" component={PostsShow} />
+          <Route path="posts/new" component={PostNew} />
+          <Route path="posts/:id" component={PostShow} />
+          <Route path="posts/:id/edit" component={PostEdit} />
           <Route path='/login' component={Login}/>
           <Route path='/search' component={Search}/>
           <Route path='/chat/:id' component={Chat}/>

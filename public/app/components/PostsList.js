@@ -10,6 +10,17 @@ class PostsList extends Component {
   componentWillMount() {
     this.props.fetchPosts();
   }
+
+  renderAdd() {
+    return (
+          <Link to="posts/new">
+            <GridTile
+          title="Add"
+            >
+            </GridTile>
+          </Link>
+      );
+  }
   render() {
     const { posts, loading, error } = this.props.postsList;
 const styles = {
@@ -37,6 +48,7 @@ const styles = {
       style={styles.gridList}
         >
         <Subheader>December</Subheader>
+        {this.renderAdd()}
         {posts.map((tile) => (
             <Link
           key={tile.img}
