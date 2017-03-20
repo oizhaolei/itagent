@@ -31,7 +31,7 @@ export const UPDATE_USER_EMAIL = 'UPDATE_USER_EMAIL';
 export const LOGOUT_USER = 'LOGOUT_USER';
 
 
-const ROOT_URL = 'http://localhost:8080/api';
+const ROOT_URL = 'http://xijing.tttalk.org:3005/api';
 
 export function validateEmail(validateEmailToken) {
   //check if token from welcome email is valid, if so, update email as verified and login the user from response

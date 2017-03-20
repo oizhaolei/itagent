@@ -32,17 +32,17 @@ class BottomNavigationExampleSimple extends Component {
         <BottomNavigationItem
       label="在线"
       icon={recentsIcon}
-      onTouchTap={() => {this.props.router.push('/');}}
+      onTouchTap={() => {this.props.history.push('/');}}
         />
         <BottomNavigationItem
       label="工具"
       icon={favoritesIcon}
-      onTouchTap={() => {this.props.router.push('/tools');}}
+      onTouchTap={() => {this.props.history.push('/tools');}}
         />
         <BottomNavigationItem
       label="我的"
       icon={nearbyIcon}
-      onTouchTap={() => {this.props.router.push('/me');}}
+      onTouchTap={() => {this.props.history.push('/me');}}
         />
         </BottomNavigation>
         </Paper>

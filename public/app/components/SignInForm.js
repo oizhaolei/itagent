@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { withRouter } from 'react-router';
 import { Field } from 'redux-form';
 
-import { TextField } from 'redux-form-material-ui';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -15,7 +14,7 @@ class SignInForm extends Component {
 
   componentWillReceiveProps(nextProps) {
     if(nextProps.user.status === 'authenticated' && nextProps.user.user && !nextProps.user.error) {
-      this.props.router.push('/');
+      this.props.history.push('/');
     }
 
     //error
@@ -57,10 +56,10 @@ class SignInForm extends Component {
           <Paper style={styles.paper}>
         <form onSubmit={handleSubmit}>
         <div>
-        <Field name="username" component={TextField} hintText="用户名"/>
+        <Field name="username" component="input" hintText="用户名"/>
         </div>
         <div>
-        <Field name="password" type="password" component={TextField} hintText="密码"/>
+        <Field name="password" type="password" component="input" hintText="密码"/>
         </div>
         <div>
         <RaisedButton type="submit" disabled={pristine || submitting} label="登录" primary={true}/>

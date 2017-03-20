@@ -8,24 +8,6 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import MessageList from '../components/MessageList';
 import ChatSend from '../components/ChatSend';
 
-const styles = {
-  top: {
-    position: 'fixed',
-    width: '100%',
-    WebkitAppRegion: 'drag'
-  },
-  center_content: {
-    paddingTop: '50px',
-    paddingBottom: '50px',
-  },
-  bottom: {
-    position: 'fixed',
-    bottom: 0,
-    width: '100%',
-    zIndex: 9,
-  }
-};
-
 class Chat extends Component  {
   state = {
     dataSource: [],
@@ -44,16 +26,16 @@ class Chat extends Component  {
   render() {
     return (
         <div>
-        <div style={styles.top}>
+        <div className="top">
         <AppBar
       title={this.props.params.id}
-      iconElementLeft={<IconButton onTouchTap={() => this.props.router.push('/')}><NavigationClose /></IconButton>}
+      iconElementLeft={<IconButton onTouchTap={() => this.props.history.push('/')}><NavigationClose /></IconButton>}
         />
         </div>
-        <div style={styles.center_content}>
+        <div className="center_content">
         <MessageList />
         </div>
-        <div style={styles.bottom}>
+        <div className="bottom">
         <ChatSend />
         </div>
         </div>

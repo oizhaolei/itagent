@@ -20,7 +20,7 @@ class SearchBar extends Component {
     return (
         <AppBar
       title="输入任意内容搜索"
-      iconElementLeft={<IconButton onTouchTap={() => this.props.router.push('/')}><NavigationClose /></IconButton>}
+      iconElementLeft={<IconButton onTouchTap={() => this.props.history.push('/')}><NavigationClose /></IconButton>}
         />
     );
   }

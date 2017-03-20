@@ -6,7 +6,7 @@ export const FETCH_CONTACTS_SUCCESS = 'FETCH_CONTACTS_SUCCESS';
 export const FETCH_CONTACTS_FAILURE = 'FETCH_CONTACTS_FAILURE';
 
 
-const ROOT_URL = 'http://localhost:8080/api';
+const ROOT_URL = 'http://xijing.tttalk.org:3005/api';
 
 export function fetchContacts() {
   const request = axios({

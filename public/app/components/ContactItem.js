@@ -7,7 +7,7 @@ import CommunicationChatBubble from 'material-ui/svg-icons/communication/chat-bu
 
 class ContactItem extends Component {
   chat(id) {
-    this.props.router.push('/chat/' + id);
+    this.props.history.push('/chat/' + id);
   }
 
   render() {

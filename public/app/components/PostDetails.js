@@ -23,23 +23,13 @@ class PostDetails extends Component {
 
   editPost(id) {
     console.log('edit', id);
-    this.props.router.push('/posts/' + id + '/edit');
+    this.props.history.push('/posts/' + id + '/edit');
   }
 
   deletePost(id) {
     console.log('delete', id);
   }
   render() {
-    const styles = {
-      top: {
-        position: 'fixed',
-        WebkitAppRegion: 'drag'
-      },
-      center_content: {
-        paddingTop: '50px',
-        paddingBottom: '50px',
-      }
-    };
     const { post, loading, error } = this.props.activePost;
     if (loading) {
       return <div className="container">Loading...</div>;
@@ -63,13 +53,13 @@ class PostDetails extends Component {
     return (
         <div>
         <AppBar
-      style={styles.top}
+      className="top"
       title="POST"
-      iconElementLeft={<IconButton onTouchTap={() => this.props.router.push('/tools')}><NavigationClose /></IconButton>}
+      iconElementLeft={<IconButton onTouchTap={() => this.props.history.push('/tools')}><NavigationClose /></IconButton>}
       iconElementRight={actionButton}
         />
 
-        <div style={styles.center_content}>
+        <div className="center_content">
       <div className="container">
         <h3>{post.title}</h3>
         <h6>Categories: {post.author}</h6>

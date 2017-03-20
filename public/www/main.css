@@ -1,9 +1,24 @@
 html {
-  font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
-  font-size: 13px;
-  line-height: 20px;
-  margin: 0px;
+    font-size: 13px;
+    line-height: 20px;
+    margin: 0px;
+}
+.top {
+    position: fixed;
+    width: 100%;
+    -webkit-app-region:drag;
+}
+.center_content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 9;
 }

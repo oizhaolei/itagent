@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { withRouter } from 'react-router';
 import { Field } from 'redux-form';
 
-import { TextField } from 'redux-form-material-ui';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -18,16 +17,6 @@ class PostEditForm extends Component {
   }
 
   render() {
-    const styles = {
-      top: {
-        position: 'fixed',
-        WebkitAppRegion: 'drag'
-      },
-      center_content: {
-        paddingTop: '50px',
-        paddingBottom: '50px',
-      }
-    };
     const { post, loading, error } = this.props.editPost;
     if (loading) {
       return <div className="container">Loading...</div>;
@@ -38,11 +27,11 @@ class PostEditForm extends Component {
     }
 
     return (
-        <div style={styles.center}>
-          <Paper style={styles.paper}>
+        <div>
+          <Paper>
         <form onSubmit={handleSubmit}>
         <div>
-        <Field name="username" component={TextField} value="post.title"/>
+        <Field name="username" component="input" value="post.title"/>
         </div>
         <div>
         <RaisedButton type="submit" disabled={pristine || submitting} label="保存" primary={true}/>

@@ -16,12 +16,6 @@ class Header extends Component {
     };
 
     render() {
-    const styles = {
-        top: {
-          position: 'fixed',
-          WebkitAppRegion: 'drag'
-        }
-    };
       let loginButton;
       if (this.props.user.status === 'authenticated') {
         loginButton = <IconMenu
@@ -36,14 +30,14 @@ class Header extends Component {
           <MenuItem primaryText="Sign out" onTouchTap={() => this.props.logout()} />
     </IconMenu>;
       } else {
-        loginButton = <FlatButton label="Login" onTouchTap={() => this.props.router.push('/login')}/>;
+        loginButton = <FlatButton label="Login" onTouchTap={() => this.props.history.push('/login')}/>;
       }
 
       return (
           <AppBar
-        style={styles.top}
+        className="top"
         title="IT Agent"
-        iconElementLeft={<IconButton onTouchTap={() => this.props.router.push('/search')}><SearchIcon /></IconButton>}
+        iconElementLeft={<IconButton onTouchTap={() => this.props.history.push('/search')}><SearchIcon /></IconButton>}
         iconElementRight={loginButton}
           />
       );

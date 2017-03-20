@@ -1,18 +1,18 @@
 import React from 'react';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { createStore } from 'redux';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 import { Provider } from 'react-redux';
-
-// Redux DevTools
-import DevTools from './containers/DevTools';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
+import HeaderContainer from './containers/HeaderContainer';
+import CardExampleWithAvatar from './components/CardExampleWithAvatar';
+import BottomNavigationExampleSimple from './components/BottomNavigationExampleSimple';
+
 import Login from './views/Login';
-import Main from './views/Main';
 import Contacts from './views/tab_contacts';
 import Tools from './views/tab_tools';
 import Me from './views/tab_me';
@@ -26,29 +26,38 @@ import configureStore from './store/configureStore';
 
 const store = configureStore();
 
-const devtools = (process.env.NODE_ENV === 'production') ? '' : <DevTools store={store} />;
-
-ReactDOM.render(
-    <MuiThemeProvider>
-        <div>
-      <Provider store={store}>
-        <Router history={browserHistory} >
-          <Route path='/' component={Main} >
-            <IndexRoute component={Contacts}/>
-            <Route path="/tools" component={Tools}/>
-            <Route path="/me" component={Me}/>
-          </Route>
-          <Route path="posts/new" component={PostNew} />
-          <Route path="posts/:id" component={PostShow} />
-          <Route path="posts/:id/edit" component={PostEdit} />
-          <Route path='/login' component={Login}/>
-          <Route path='/search' component={Search}/>
-          <Route path='/chat/:id' component={Chat}/>
-        </Router>
-      </Provider>
-    {devtools}
-        </div>
-    </MuiThemeProvider>
-    ,
-    document.getElementById('app')
+render(
+  <MuiThemeProvider>
+  <Provider store={store}>
+  <div>
+  <Router>
+  <div>
+  <div className="top">
+  <HeaderContainer />
+  </div>
+  <div className="center_content">
+  <Route path="/" exact component={Contacts}/>
+  <Route path="/tools" component={Tools}/>
+  <Route path="/me" component={Me}/>
+  </div>
+  <div className="bottom">
+  <BottomNavigationExampleSimple />
+  </div>
+  </div>
+  </Router>
+  <Router>
+  <div>
+  <Route path="posts/new" component={PostNew} />
+  <Route path="posts/:id" component={PostShow} />
+  <Route path="posts/:id/edit" component={PostEdit} />
+  <Route path='/login' component={Login}/>
+  <Route path='/search' component={Search}/>
+  <Route path='/chat/:id' component={Chat}/>
+  </div>
+  </Router>
+  </div>
+  </Provider>
+  </MuiThemeProvider>
+  ,
+  document.getElementById('app')
 );
