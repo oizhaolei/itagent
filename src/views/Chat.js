@@ -24,12 +24,13 @@ class Chat extends Component  {
   };
 
   render() {
+    const { match, history } = this.props;
     return (
         <div>
         <div className="top">
         <AppBar
-      title={this.props.params.id}
-      iconElementLeft={<IconButton onTouchTap={() => this.props.history.push('/')}><NavigationClose /></IconButton>}
+      title={match.params.id}
+      iconElementLeft={<IconButton onTouchTap={() => history.push('/')}><NavigationClose /></IconButton>}
         />
         </div>
         <div className="center_content">

@@ -9,11 +9,11 @@ const config = {
   entry: [
     'webpack/hot/dev-server',
     'webpack/hot/only-dev-server',
-    path.join(__dirname, '/public/app/app.js'),
+    path.join(__dirname, '/src/app.js'),
   ],
   // Server Configuration options
   devServer: {
-    contentBase: 'public/www', // Relative directory for base of server
+    contentBase: 'public', // Relative directory for base of server
     devtool: 'eval',
     hot: true, // Live-reload
     inline: true,
@@ -32,8 +32,8 @@ const config = {
     new webpack.NoErrorsPlugin(),
     // Moves files
     new TransferWebpackPlugin([
-      {from: 'www'},
-    ], path.resolve(__dirname, 'public')),
+      {from: 'public'},
+    ], __dirname),
   ],
   module: {
     loaders: [

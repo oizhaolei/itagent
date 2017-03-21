@@ -22,3 +22,8 @@ body {
     width: 100%;
     z-index: 9;
 }
+.center-in-center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}

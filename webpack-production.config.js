@@ -31,8 +31,8 @@ const config = {
     new webpack.NoErrorsPlugin(),
     // Transfer Files
     new TransferWebpackPlugin([
-      {from: 'www'},
-    ], path.resolve(__dirname, 'public')),
+      {from: 'public'},
+    ], __dirname),
   ],
   module: {
     loaders: [
