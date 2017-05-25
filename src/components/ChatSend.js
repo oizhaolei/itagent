@@ -20,7 +20,7 @@ class BottomNavigationExampleSimple extends Component {
         <div>
         <TextField
       style={styles.full_width}
-      hintText="说点什么"
+      placeholder="说点什么"
         />
         </div>
     );

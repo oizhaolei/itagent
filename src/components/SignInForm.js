@@ -26,19 +26,6 @@ class SignInForm extends Component {
   }
   getStyles() {
     return {
-      center: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100%',
-        padding: 10
-      },
-      paper: {
-        maxHeight: 400,
-        maxWidth: 400,
-        textAlign: 'center',
-        padding: '20px 40px'
-      },
       submit: {
         marginTop: 10,
         marginBottom: 20,
@@ -46,20 +33,20 @@ class SignInForm extends Component {
       }
     };
   }
-  
+
   render() {
     const { pristine, handleSubmit, submitting } = this.props;
     const styles = this.getStyles();
 
     return (
-        <div style={styles.center}>
-          <Paper style={styles.paper}>
+        <div className="center-in-center">
+          <Paper>
         <form onSubmit={handleSubmit}>
         <div>
-        <Field name="username" component="input" hintText="用户名"/>
+        <Field name="username" component="input" placeholder="用户名"/>
         </div>
         <div>
-        <Field name="password" type="password" component="input" hintText="密码"/>
+        <Field name="password" type="password" component="input" placeholder="密码"/>
         </div>
         <div>
         <RaisedButton type="submit" disabled={pristine || submitting} label="登录" primary={true}/>

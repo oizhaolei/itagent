@@ -35,7 +35,7 @@ class Search extends Component {
             <BackBar style={styles.top} />
             <div style={styles.center_content}>
             <AutoComplete
-            hintText="Type anything"
+            placeholder="Type anything"
             dataSource={this.state.dataSource}
             onUpdateInput={this.handleUpdateInput}
             fullWidth={true}
