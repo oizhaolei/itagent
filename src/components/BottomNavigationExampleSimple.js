@@ -11,9 +11,8 @@ const recentsIcon = <IconMessage />;
 const favoritesIcon = <IconChat />;
 const nearbyIcon = <IconLocationOn />;
 const urls = [
-  '/',
-  '/tools',
-  '/me',
+    '/',
+    '/me',
 ];
 
 /**
@@ -23,31 +22,26 @@ const urls = [
  */
 class BottomNavigationExampleSimple extends Component {
 
-  render() {
-    const selectedIndex = urls.indexOf(this.props.location.pathname);
+    render() {
+        const selectedIndex = urls.indexOf(this.props.location.pathname);
 
-    return (
-        <Paper zDepth={1}>
-        <BottomNavigation selectedIndex={selectedIndex}>
-        <BottomNavigationItem
-      label="在线"
-      icon={recentsIcon}
-      onTouchTap={() => {this.props.history.push('/');}}
-        />
-        <BottomNavigationItem
-      label="工具"
-      icon={favoritesIcon}
-      onTouchTap={() => {this.props.history.push('/tools');}}
-        />
-        <BottomNavigationItem
-      label="我的"
-      icon={nearbyIcon}
-      onTouchTap={() => {this.props.history.push('/me');}}
-        />
-        </BottomNavigation>
-        </Paper>
-    );
-  }
+        return (
+            <Paper zDepth={1}>
+              <BottomNavigation selectedIndex={selectedIndex}>
+                <BottomNavigationItem
+                    label="工具"
+                    icon={favoritesIcon}
+                    onTouchTap={() => {this.props.history.push('/');}}
+                />
+                <BottomNavigationItem
+                    label="我的"
+                    icon={nearbyIcon}
+                    onTouchTap={() => {this.props.history.push('/me');}}
+                />
+              </BottomNavigation>
+            </Paper>
+        );
+    }
 }
 
 export default withRouter(BottomNavigationExampleSimple);

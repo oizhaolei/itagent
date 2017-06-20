@@ -3,12 +3,12 @@ import {List} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import Divider from 'material-ui/Divider';
 
-import ContactItem from './ContactItem';
+import MessageItem from './MessageItem';
 
-class ContactsList extends Component {
+class MessagesList extends Component {
   render() {
-      return <div className="container"><h1>Contacts</h1><h3>Loading...</h3></div>;
+      return <div className="container"><h1>Messages</h1><h3>Loading...</h3></div>;
   }
 }
 
-export default ContactsList;
+export default MessagesList;
