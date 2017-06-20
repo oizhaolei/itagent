@@ -53,7 +53,8 @@ const mapDispatchToProps = (dispatch) => {
 
 function mapStateToProps(state, ownProps) {
   return {
-    activePost: state.activePost
+    editPost: state.posts.editPost,
+    postId: ownProps.id
   };
 }
 
