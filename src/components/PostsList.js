@@ -6,7 +6,8 @@ import Avatar from 'material-ui/Avatar';
 import ContentInbox from 'material-ui/svg-icons/content/inbox';
 import ContentSend from 'material-ui/svg-icons/content/send';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import { blue500 } from 'material-ui/styles/colors';
+import ActionSearch from 'material-ui/svg-icons/action/search';
+import { blue500, yellow600 } from 'material-ui/styles/colors';
 
 import PostItem from './PostItem';
 
@@ -33,6 +34,19 @@ class PostsList extends Component {
             </div>
         );
     }
+    renderSearch() {
+        return (
+            <div>
+              <List to="posts/search">
+                <ListItem
+                    leftAvatar={<Avatar icon={<ActionSearch />} backgroundColor={yellow600} />}
+                    primaryText="关键字查询"
+                />
+              </List>
+              <Divider inset={true} />
+            </div>
+        );
+    }
     render() {
         const { posts, loading, error } = this.props.postsList;
 
@@ -50,7 +64,7 @@ class PostsList extends Component {
                         key={group._id}
                         primaryText={group.title}
                         leftIcon={<ContentInbox />}
-                        initiallyOpen={true}
+                        initiallyOpen={false}
                         primaryTogglesNestedList={true}
                         nestedItems={
                             group.list.map((item) => (
@@ -63,6 +77,8 @@ class PostsList extends Component {
                     />
                 ))}
               </List>
+              <Divider inset={true} />
+              {this.renderSearch()}
             </div>
         );
     }
