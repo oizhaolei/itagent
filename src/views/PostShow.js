@@ -1,8 +1,8 @@
-import React, { Component, PropTypes } from 'react';
-import PostDetailsContainer from '../containers/PostDetailsContainer.js';
+import React from 'react';
+import PostDetailContainer from '../containers/PostDetailContainer.js';
 
-const PostsShow = ({ match }) => (
-    <PostDetailsContainer id={match.params.id}/>
+const PostShow = ({ match }) => (
+    <PostDetailContainer id={match.params.id} />
 );
 
-export default PostsShow;
+export default PostShow;

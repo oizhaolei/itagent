@@ -1,72 +1,71 @@
-import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
 
-import {GridList, GridTile} from 'material-ui/GridList';
-import IconButton from 'material-ui/IconButton';
-import Subheader from 'material-ui/Subheader';
-import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import { List, ListItem } from 'material-ui/List';
+import Divider from 'material-ui/Divider';
+import Avatar from 'material-ui/Avatar';
+import ContentInbox from 'material-ui/svg-icons/content/inbox';
+import ContentSend from 'material-ui/svg-icons/content/send';
+import ContentAdd from 'material-ui/svg-icons/content/add';
+import { blue500 } from 'material-ui/styles/colors';
+
+import PostItem from './PostItem';
 
 class PostsList extends Component {
-  componentWillMount() {
-    this.props.fetchPosts();
-  }
-
-  renderAdd() {
-    return (
-          <Link to="posts/new">
-            <GridTile
-          title="Add"
-            >
-            </GridTile>
-          </Link>
-      );
-  }
-  render() {
-    const { posts, loading, error } = this.props.postsList;
-const styles = {
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-  },
-  gridList: {
-    width: 500,
-    height: '100%',
-    overflowY: 'auto',
-  },
-};
-
-    if(loading) {
-      return <div className="container"><h1>Posts</h1><h3>Loading...</h3></div>;
-    } else if(error) {
-      return <div className="alert alert-danger">Error: {error.message}</div>;
+    post(id) {
+        this.props.history.push('/post/' + id);
     }
-    return (
-        <div style={styles.root}>
-        <GridList
-      cellHeight={180}
-      style={styles.gridList}
-        >
-        <Subheader>December</Subheader>
-        {this.renderAdd()}
-        {posts.map((tile) => (
-            <Link
-          key={tile.img}
-          to={"posts/" + tile._id}
-            >
-            <GridTile
-          title={tile.title}
-          subtitle={<span>by <b>{tile.author}</b></span>}
-          actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
-            >
-            <img src={tile.img} />
-            </GridTile>
-          </Link>
-        ))}
-      </GridList>
-        </div>
-    );
-  }
+
+    componentWillMount() {
+        this.props.fetchPosts();
+    }
+
+    renderAdd() {
+        return (
+            <div>
+              <List to="posts/new">
+                <ListItem
+                    leftAvatar={<Avatar icon={<ContentSend />} backgroundColor={blue500} />}
+                    rightIcon={<ContentAdd />}
+                    primaryText="我要提问"
+                />
+              </List>
+              <Divider inset={true} />
+            </div>
+        );
+    }
+    render() {
+        const { posts, loading, error } = this.props.postsList;
+
+        if(loading) {
+            return <div className="container"><h1>Posts</h1><h3>Loading...</h3></div>;
+        } else if(error) {
+            return <div className="alert alert-danger">Error: {error.message}</div>;
+        }
+        return (
+            <div className="center_content">
+              {this.renderAdd()}
+              <List>
+                {posts.map((group) => (
+                    <ListItem
+                        key={group._id}
+                        primaryText={group.title}
+                        leftIcon={<ContentInbox />}
+                        initiallyOpen={true}
+                        primaryTogglesNestedList={true}
+                        nestedItems={
+                            group.list.map((item) => (
+                                <PostItem
+                                    key={item._id}
+                                        post={item}
+                                />
+                            ))
+                        }
+                    />
+                ))}
+              </List>
+            </div>
+        );
+    }
 }
 
 export default PostsList;

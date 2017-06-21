@@ -5,8 +5,8 @@ import PostsList from '../components/PostsList';
 
 
 const mapStateToProps = (state) => {
-  return { 
-    postsList: state.posts.postsList
+  return {
+    postsList: state.posts.postsList,
   };
 };
 

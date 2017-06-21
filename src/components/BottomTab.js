@@ -3,12 +3,10 @@ import { withRouter } from 'react-router';
 
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import Paper from 'material-ui/Paper';
-import IconMessage from 'material-ui/svg-icons/communication/message';
-import IconChat from 'material-ui/svg-icons/communication/business';
+import IconBusiness from 'material-ui/svg-icons/communication/business';
 import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 
-const recentsIcon = <IconMessage />;
-const favoritesIcon = <IconChat />;
+const favoritesIcon = <IconBusiness />;
 const nearbyIcon = <IconLocationOn />;
 const urls = [
     '/',
@@ -20,7 +18,7 @@ const urls = [
  * provided. The selected `BottomNavigationItem` is determined by application
  * state (for instance, by the URL).
  */
-class BottomNavigationExampleSimple extends Component {
+class BottomTab extends Component {
 
     render() {
         const selectedIndex = urls.indexOf(this.props.location.pathname);
@@ -41,7 +39,7 @@ class BottomNavigationExampleSimple extends Component {
               </BottomNavigation>
             </Paper>
         );
-    }
+    }gg
 }
 
-export default withRouter(BottomNavigationExampleSimple);
+export default withRouter(BottomTab);

@@ -7,13 +7,8 @@ body {
     line-height: 20px;
     margin: 0px;
 }
-.top {
-    position: fixed;
-    width: 100%;
-    -webkit-app-region:drag;
-}
 .center_content {
-    padding-top: 50px;
+    padding-top: 5px;
     padding-bottom: 50px;
 }
 .bottom {

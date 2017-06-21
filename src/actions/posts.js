@@ -38,7 +38,7 @@ export const RESET_DELETED_POST = 'RESET_DELETED_POST';
 
 
 
-const ROOT_URL = 'http://xijing.tttalk.org:3005/api';
+const ROOT_URL = 'http://localhost:3005';
 
 export function fetchPosts() {
   const request = axios({

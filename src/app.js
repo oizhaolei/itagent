@@ -8,14 +8,11 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
-import HeaderContainer from './containers/HeaderContainer';
-
-import Tools from './views/tab_tools';
+import Posts from './views/tab_posts';
 import Me from './views/tab_me';
 
 import Login from './views/Login';
 import Search from './views/Search';
-import Chat from './views/Chat';
 import PostNew from './views/PostNew';
 import PostShow from './views/PostShow';
 import PostEdit from './views/PostEdit';
@@ -30,18 +27,14 @@ render(
         <div>
           <Router>
             <div>
-              <div className="top">
-                <HeaderContainer />
-              </div>
-              <Route path="/" exact component={Tools}/>
+              <Route path="/" exact component={Posts}/>
               <Route path="/me" component={Me}/>
 
-              <Route path="/posts/new" component={PostNew} />
-              <Route path="/posts/:id" component={PostShow} />
-              <Route path="/posts/:id/edit" component={PostEdit} />
-              <Route path='/login' component={Login}/>
-              <Route path='/search' component={Search}/>
-              <Route path='/chat/:id' component={Chat}/>
+              <Route path="/post/new" component={PostNew} />
+              <Route path="/post/:id" component={PostShow} />
+              <Route path="/post/:id/edit" component={PostEdit} />
+              <Route path="/login" component={Login}/>
+              <Route path="/search" component={Search}/>
             </div>
           </Router>
         </div>
