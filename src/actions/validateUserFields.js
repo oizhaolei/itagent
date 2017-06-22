@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 
-
 //Validate user fields like name and password
 export const VALIDATE_USER_FIELDS = 'VALIDATE_USER_FIELDS';
 export const VALIDATE_USER_FIELDS_SUCCESS = 'VALIDATE_USER_FIELDS_SUCCESS';
@@ -17,26 +16,26 @@ export function validateUserFields(values) {
 
   return {
     type: VALIDATE_USER_FIELDS,
-    payload: request
+    payload: request,
   };
 }
 
 export function validateUserFieldsSuccess() {
   return {
-    type: VALIDATE_USER_FIELDS_SUCCESS
+    type: VALIDATE_USER_FIELDS_SUCCESS,
   };
 }
 
 export function validateUserFieldsFailure(error) {
   return {
     type: VALIDATE_USER_FIELDS_FAILURE,
-    payload: error
+    payload: error,
   };
 }
 
 export function resetValidateUserFields() {
   return {
-    type: RESET_VALIDATE_USER_FIELDS
-  }
-};
+    type: RESET_VALIDATE_USER_FIELDS,
+  };
+}
 

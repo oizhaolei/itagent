@@ -16,7 +16,7 @@ class PostForm extends Component {
     }
 
     render() {
-        const {fields: { title }, handleSubmit, submitting } = this.props;
+        const {handleSubmit, submitting } = this.props;
 
         return (
             <div className="center-in-center">

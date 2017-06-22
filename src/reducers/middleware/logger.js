@@ -4,7 +4,7 @@
  * @returns {Function}
  */
 export default function logger({ getState }) {
-  return (next) => (action) => {
+  return next => (action) => {
     console.log('dispatching', action);// eslint-disable-line
     const result = next(action);
 

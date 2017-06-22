@@ -12,25 +12,25 @@ export function fetchContacts() {
   const request = axios({
     method: 'get',
     url: `${ROOT_URL}/contacts`,
-    headers: []
+    headers: [],
   });
 
   return {
     type: FETCH_CONTACTS,
-    payload: request
+    payload: request,
   };
 }
 
 export function fetchContactsSuccess(contacts) {
   return {
     type: FETCH_CONTACTS_SUCCESS,
-    payload: contacts
+    payload: contacts,
   };
 }
 
 export function fetchContactsFailure(error) {
   return {
     type: FETCH_CONTACTS_FAILURE,
-    payload: error
+    payload: error,
   };
 }

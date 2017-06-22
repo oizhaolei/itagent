@@ -14,30 +14,30 @@ export function updateEmail(email, tokenFromStorage) {
     method: 'post',
     data: email,
     url: `${ROOT_URL}/updateEmail`,
-    headers: {'Authorization': `Bearer ${tokenFromStorage}`}
+    headers: { Authorization: `Bearer ${tokenFromStorage}` },
   });
 
   return {
     type: UPDATE_EMAIL,
-    payload: request
+    payload: request,
   };
 }
 
 export function updateEmailSuccess() {
   return {
-    type: UPDATE_EMAIL_SUCCESS
+    type: UPDATE_EMAIL_SUCCESS,
   };
 }
 
 export function updateEmailFailure(error) {
   return {
     type: UPDATE_EMAIL_FAILURE,
-    payload: error
+    payload: error,
   };
 }
 
 export function resetUpdateEmailState() {
   return {
-    type: RESET_UPDATE_EMAIL_STATE
+    type: RESET_UPDATE_EMAIL_STATE,
   };
 }

@@ -5,5 +5,5 @@ import request from './request';
 export default [
   thunk,
   request,
-  logger
+  logger,
 ];

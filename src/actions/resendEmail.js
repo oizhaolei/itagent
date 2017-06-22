@@ -13,31 +13,31 @@ export function resendValidationEmail(tokenFromStorage) {
   const request = axios({
     method: 'get',
     url: `${ROOT_URL}/resendValidationEmail`,
-    headers: {'Authorization': `Bearer ${tokenFromStorage}`}
+    headers: { Authorization: `Bearer ${tokenFromStorage}` },
   });
 
   return {
     type: RESEND_VALIDATION_EMAIL,
-    payload: request
+    payload: request,
   };
 }
 
 export function resendValidationEmailSuccess(message) {
   return {
     type: RESEND_VALIDATION_EMAIL_SUCCESS,
-    payload: message
+    payload: message,
   };
 }
 
 export function resendValidationEmailFailure(error) {
   return {
     type: RESEND_VALIDATION_EMAIL_FAILURE,
-    payload: error
+    payload: error,
   };
 }
 
 export function resetResendEmailState() {
   return {
-    type: RESET_RESEND_EMAIL_STATE
+    type: RESET_RESEND_EMAIL_STATE,
   };
 }

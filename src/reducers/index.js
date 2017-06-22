@@ -16,7 +16,7 @@ const rootReducer = combineReducers({
   contacts: ContactsReducer,
   form: formReducer, // <-- redux-form
   resendEmail: ResendEmailReducer,
-  updateEmail: UpdateEmailReducer
+  updateEmail: UpdateEmailReducer,
 });
 
 export default rootReducer;
