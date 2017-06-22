@@ -1,23 +1,17 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 
-import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
+import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation';
 import Paper from 'material-ui/Paper';
 import IconBusiness from 'material-ui/svg-icons/communication/business';
-import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
+import ActionFace from 'material-ui/svg-icons/action/face';
 
 const favoritesIcon = <IconBusiness />;
-const nearbyIcon = <IconLocationOn />;
 const urls = [
     '/',
     '/me',
 ];
 
-/**
- * A simple example of `BottomNavigation`, with three labels and icons
- * provided. The selected `BottomNavigationItem` is determined by application
- * state (for instance, by the URL).
- */
 class BottomTab extends Component {
 
     render() {
@@ -27,19 +21,19 @@ class BottomTab extends Component {
             <Paper zDepth={1}>
               <BottomNavigation selectedIndex={selectedIndex}>
                 <BottomNavigationItem
-                    label="工具"
+                    label="问题"
                     icon={favoritesIcon}
                     onTouchTap={() => {this.props.history.push('/');}}
                 />
                 <BottomNavigationItem
-                    label="我的"
-                    icon={nearbyIcon}
+                    label="我"
+                    icon={<ActionFace />}
                     onTouchTap={() => {this.props.history.push('/me');}}
                 />
               </BottomNavigation>
             </Paper>
         );
-    }gg
+    }
 }
 
 export default withRouter(BottomTab);

@@ -8,7 +8,7 @@ import BottomTab from '../components/BottomTab';
  */
 const Posts = () => (
     <div>
-      <div className="center_content">
+      <div className="center-content">
         <PostsListContainer />
       </div>
       <div className="bottom">

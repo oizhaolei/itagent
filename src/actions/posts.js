@@ -41,190 +41,187 @@ export const RESET_DELETED_POST = 'RESET_DELETED_POST';
 const ROOT_URL = 'http://localhost:3005';
 
 export function fetchPosts() {
-  const request = axios({
-    method: 'get',
-    url: `${ROOT_URL}/posts`,
-    headers: []
-  });
+    const request = axios({
+        method: 'get',
+        url: `${ROOT_URL}/posts`,
+        headers: []
+    });
 
-  return {
-    type: FETCH_POSTS,
-    payload: request
-  };
+    return {
+        type: FETCH_POSTS,
+        payload: request
+    };
 }
 
 export function fetchPostsSuccess(posts) {
-  return {
-    type: FETCH_POSTS_SUCCESS,
-    payload: posts
-  };
+    return {
+        type: FETCH_POSTS_SUCCESS,
+        payload: posts
+    };
 }
 
 export function fetchPostsFailure(error) {
-  return {
-    type: FETCH_POSTS_FAILURE,
-    payload: error
-  };
+    return {
+        type: FETCH_POSTS_FAILURE,
+        payload: error
+    };
 }
 
 export function validatePostFields(props) {
-  //note: we cant have /posts/validateFields because it'll match /posts/:id path!
-  const request = axios.post(`${ROOT_URL}/posts/validate/fields`, props);
+    //note: we cant have /posts/validateFields because it'll match /posts/:id path!
+    const request = axios.post(`${ROOT_URL}/posts/validate/fields`, props);
 
-  return {
-    type: VALIDATE_POST_FIELDS,
-    payload: request
-  };
+    return {
+        type: VALIDATE_POST_FIELDS,
+        payload: request
+    };
 }
 
 export function validatePostFieldsSuccess() {
-  return {
-    type: VALIDATE_POST_FIELDS_SUCCESS
-  };
+    return {
+        type: VALIDATE_POST_FIELDS_SUCCESS
+    };
 }
 
 export function validatePostFieldsFailure(error) {
-  return {
-    type: VALIDATE_POST_FIELDS_FAILURE,
-    payload: error
-  };
+    return {
+        type: VALIDATE_POST_FIELDS_FAILURE,
+        payload: error
+    };
 }
 
 export function resetPostFields() {
-  return {
-    type: RESET_POST_FIELDS
-  }
+    return {
+        type: RESET_POST_FIELDS
+    }
 };
 
 
-export function createPost(props, tokenFromStorage) {
-  //const request = axios.post(`${ROOT_URL}/posts`, props);
-  const request = axios({
-    method: 'post',
-    data: props,
-    url: `${ROOT_URL}/posts`,
-   headers: {'Authorization': `Bearer ${tokenFromStorage}`}
-  });
+export function createPost(props) {
+    //const request = axios.post(`${ROOT_URL}/posts`, props);
+    const request = axios({
+        method: 'post',
+        data: props,
+        url: `${ROOT_URL}/posts`,
+    });
 
-  return {
-    type: CREATE_POST,
-    payload: request
-  };
+    return {
+        type: CREATE_POST,
+        payload: request
+    };
 }
 
 export function createPostSuccess(newPost) {
-  return {
-    type: CREATE_POST_SUCCESS,
-    payload: newPost
-  };
+    return {
+        type: CREATE_POST_SUCCESS,
+        payload: newPost
+    };
 }
 
 export function createPostFailure(error) {
-  return {
-    type: CREATE_POST_FAILURE,
-    payload: error
-  };
+    return {
+        type: CREATE_POST_FAILURE,
+        payload: error
+    };
 }
 
 export function resetNewPost() {
-  return {
-    type: RESET_NEW_POST
-  }
+    return {
+        type: RESET_NEW_POST
+    }
 };
 
-export function editPost(id, props, tokenFromStorage) {
-  //const request = axios.post(`${ROOT_URL}/posts`, props);
-  const request = axios({
-    method: 'post',
-    data: props,
-    url: `${ROOT_URL}/posts/${id}`,
-   headers: {'Authorization': `Bearer ${tokenFromStorage}`}
-  });
+export function editPost(id, props) {
+    //const request = axios.post(`${ROOT_URL}/posts`, props);
+    const request = axios({
+        method: 'post',
+        data: props,
+        url: `${ROOT_URL}/posts/${id}`,
+    });
 
-  return {
-    type: EDIT_POST,
-    payload: request
-  };
+    return {
+        type: EDIT_POST,
+        payload: request
+    };
 }
 
 export function editPostSuccess(editPost) {
-  return {
-    type: EDIT_POST_SUCCESS,
-    payload: editPost
-  };
+    return {
+        type: EDIT_POST_SUCCESS,
+        payload: editPost
+    };
 }
 
 export function editPostFailure(error) {
-  return {
-    type: EDIT_POST_FAILURE,
-    payload: error
-  };
+    return {
+        type: EDIT_POST_FAILURE,
+        payload: error
+    };
 }
 
 export function resetEditPost() {
-  return {
-    type: RESET_EDIT_POST
-  }
+    return {
+        type: RESET_EDIT_POST
+    }
 };
 
 export function resetDeletedPost() {
-  return {
-    type: RESET_DELETED_POST
-  }
+    return {
+        type: RESET_DELETED_POST
+    }
 };
 
 export function fetchPost(id) {
-  const request = axios.get(`${ROOT_URL}/posts/${id}`);
+    const request = axios.get(`${ROOT_URL}/posts/${id}`);
 
-  return {
-    type: FETCH_POST,
-    payload: request
-  };
+    return {
+        type: FETCH_POST,
+        payload: request
+    };
 }
 
 
 export function fetchPostSuccess(activePost) {
-  return {
-    type: FETCH_POST_SUCCESS,
-    payload: activePost
-  };
+    return {
+        type: FETCH_POST_SUCCESS,
+        payload: activePost
+    };
 }
 
 export function fetchPostFailure(error) {
-  return {
-    type: FETCH_POST_FAILURE,
-    payload: error
-  };
+    return {
+        type: FETCH_POST_FAILURE,
+        payload: error
+    };
 }
 
 export function resetActivePost() {
-  return {
-    type: RESET_ACTIVE_POST
-  }
+    return {
+        type: RESET_ACTIVE_POST
+    }
 };
 
-export function deletePost(id, tokenFromStorage) {
-  const request = axios({
-    method: 'delete',
-    url: `${ROOT_URL}/posts/${id}`,
-   headers: {'Authorization': `Bearer ${tokenFromStorage}`}
-  });
-  return {
-    type: DELETE_POST,
-    payload: request
-  };
+export function deletePost(id) {
+    const request = axios({
+        method: 'delete',
+        url: `${ROOT_URL}/posts/${id}`,
+    });
+    return {
+        type: DELETE_POST,
+        payload: request
+    };
 }
 
 export function deletePostSuccess(deletedPost) {
-  return {
-    type: DELETE_POST_SUCCESS,
-    payload: deletedPost
-  };
+    return {
+        type: DELETE_POST_SUCCESS,
+        payload: deletedPost
+    };
 }
 
 export function deletePostFailure(response) {
-  return {
-    type: DELETE_POST_FAILURE,
-    payload: response
-  };
+    return {
+        type: DELETE_POST_FAILURE,
+        payload: response
+    };
 }

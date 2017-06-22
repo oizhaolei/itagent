@@ -30,7 +30,7 @@ render(
               <Route path="/" exact component={Posts}/>
               <Route path="/me" component={Me}/>
 
-              <Route path="/post/new" component={PostNew} />
+              <Route path="/posts/new" component={PostNew} />
               <Route path="/post/:id" component={PostShow} />
               <Route path="/post/:id/edit" component={PostEdit} />
               <Route path="/login" component={Login}/>

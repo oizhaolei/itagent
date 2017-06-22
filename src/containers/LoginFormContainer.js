@@ -7,8 +7,8 @@ import { reduxForm } from 'redux-form';
 
 //Client side validation
 function validate(values) {
-  var errors = {};
-   return errors;
+  const errors = {};
+  return errors;
 }
 
 
@@ -62,5 +62,5 @@ function mapStateToProps(state, ownProps) {
 export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
   form: 'SignInForm',
   validate,
-  onSubmit
+  onSubmit,
 })(SignInForm));

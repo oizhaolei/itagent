@@ -8,8 +8,10 @@ import Subheader from 'material-ui/Subheader';
 import Avatar from 'material-ui/Avatar';
 import FileFolder from 'material-ui/svg-icons/file/folder';
 import ActionAssignment from 'material-ui/svg-icons/action/assignment';
+import TextField from 'material-ui/TextField';
 import { blue500, yellow600 } from 'material-ui/styles/colors';
 import EditorInsertChart from 'material-ui/svg-icons/editor/insert-chart';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import BottomTab from '../components/BottomTab';
 
@@ -18,53 +20,32 @@ const data = {
     title: '系统工程师',
     avatar: 'http://www.material-ui.com/images/jsa-128.jpg'
 };
+
+const handleExpand = () => {
+};
+
 const Me = () => (
     <div>
-      <div className="center_content">
-        <Card>
-          <CardHeader
-              title={data.name}
-              subtitle={data.title}
-              avatar={data.avatar}
-          />
-        </Card>
-        <List>
-          <Subheader inset={true}>Folders</Subheader>
-          <ListItem
-              leftAvatar={<Avatar icon={<FileFolder />} />}
-              rightIcon={<ActionInfo />}
-              primaryText="Photos"
-              secondaryText="Jan 9, 2014"
-          />
-          <ListItem
-              leftAvatar={<Avatar icon={<FileFolder />} />}
-              rightIcon={<ActionInfo />}
-              primaryText="Recipes"
-              secondaryText="Jan 17, 2014"
-          />
-          <ListItem
-              leftAvatar={<Avatar icon={<FileFolder />} />}
-              rightIcon={<ActionInfo />}
-              primaryText="Work"
-              secondaryText="Jan 28, 2014"
-          />
-        </List>
-        <Divider inset={true} />
-        <List>
-          <Subheader inset={true}>本机信息</Subheader>
-          <ListItem
-              leftAvatar={<Avatar icon={<ActionAssignment />} backgroundColor={blue500} />}
-              rightIcon={<ActionInfo />}
-              primaryText="Vacation itinerary"
-              secondaryText="Jan 20, 2014"
-          />
-          <ListItem
-              leftAvatar={<Avatar icon={<EditorInsertChart />} backgroundColor={yellow600} />}
-              rightIcon={<ActionInfo />}
-              primaryText="Kitchen remodel"
-              secondaryText="Jan 10, 2014"
-          />
-        </List>
+      <div className="center-in-center">
+        <TextField
+            hintText="sara.huang"
+            floatingLabelText="eid"
+            floatingLabelFixed={true}
+        />
+        <br />
+        <TextField
+            hintText="黄莎莎"
+            floatingLabelText="姓名"
+            floatingLabelFixed={true}
+        />
+        <br />
+        <TextField
+            hintText="G106"
+            floatingLabelText="座位号"
+            floatingLabelFixed={true}
+        />
+        <br />
+        <RaisedButton label="提交" primary={true} type="submit" />
       </div>
       <div className="bottom">
         <BottomTab />

@@ -80,7 +80,7 @@ export default function(state = INITIAL_STATE, action) {
             if(!result) {
                 error = {message: action.payload.message};
             } else {
-                error = {title: result.title, categories: result.categories, description: result.description};
+                error = {title: result.title};
             }
             return {...state, newPost:{...state.newPost, error: error, loading: false}}
         case RESET_POST_FIELDS:

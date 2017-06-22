@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 
 import { List, ListItem } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
@@ -12,8 +13,8 @@ import { blue500, yellow600 } from 'material-ui/styles/colors';
 import PostItem from './PostItem';
 
 class PostsList extends Component {
-    post(id) {
-        this.props.history.push('/post/' + id);
+    newPost() {
+        this.props.history.push('/posts/new');
     }
 
     componentWillMount() {
@@ -23,9 +24,10 @@ class PostsList extends Component {
     renderAdd() {
         return (
             <div>
-              <List to="posts/new">
+              <List>
                 <ListItem
-                    leftAvatar={<Avatar icon={<ContentSend />} backgroundColor={blue500} />}
+                    onTouchTap={() => this.newPost()}
+                    leftAvatar={<Avatar icon={<ContentSend />} />}
                     rightIcon={<ContentAdd />}
                     primaryText="我要提问"
                 />
@@ -37,9 +39,9 @@ class PostsList extends Component {
     renderSearch() {
         return (
             <div>
-              <List to="posts/search">
+              <List>
                 <ListItem
-                    leftAvatar={<Avatar icon={<ActionSearch />} backgroundColor={yellow600} />}
+                    leftAvatar={<Avatar icon={<ActionSearch />} />}
                     primaryText="关键字查询"
                 />
               </List>
@@ -56,7 +58,7 @@ class PostsList extends Component {
             return <div className="alert alert-danger">Error: {error.message}</div>;
         }
         return (
-            <div className="center_content">
+            <div className="center-content">
               {this.renderAdd()}
               <List>
                 {posts.map((group) => (
@@ -84,4 +86,4 @@ class PostsList extends Component {
     }
 }
 
-export default PostsList;
+export default withRouter(PostsList);

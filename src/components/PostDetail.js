@@ -29,7 +29,7 @@ class PostDetail extends Component {
         }
 
         return (
-            <div className="center_content">
+            <div className="center-content">
               <div className="container">
                 <h3>{post.title}</h3>
                 <pre>{post.answer}</pre>

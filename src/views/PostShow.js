@@ -8,7 +8,7 @@ const PostShow = ({ match }) => (
       <div className="top">
         <BackBar/>
       </div>
-      <div className="center_content">
+      <div className="center-content">
         <PostDetailContainer id={match.params.id} />
       </div>
     </div>
