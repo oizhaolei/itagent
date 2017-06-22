@@ -12,12 +12,6 @@ export const CREATE_POST_SUCCESS = 'CREATE_POST_SUCCESS';
 export const CREATE_POST_FAILURE = 'CREATE_POST_FAILURE';
 export const RESET_NEW_POST = 'RESET_NEW_POST';
 
-//Edit new post
-export const EDIT_POST = 'EDIT_POST';
-export const EDIT_POST_SUCCESS = 'EDIT_POST_SUCCESS';
-export const EDIT_POST_FAILURE = 'EDIT_POST_FAILURE';
-export const RESET_EDIT_POST = 'RESET_EDIT_POST';
-
 //Validate post fields like Title, Categries on the server
 export const VALIDATE_POST_FIELDS = 'VALIDATE_POST_FIELDS';
 export const VALIDATE_POST_FIELDS_SUCCESS = 'VALIDATE_POST_FIELDS_SUCCESS';
@@ -128,40 +122,6 @@ export function createPostFailure(error) {
 export function resetNewPost() {
     return {
         type: RESET_NEW_POST
-    }
-};
-
-export function editPost(id, props) {
-    //const request = axios.post(`${ROOT_URL}/posts`, props);
-    const request = axios({
-        method: 'post',
-        data: props,
-        url: `${ROOT_URL}/posts/${id}`,
-    });
-
-    return {
-        type: EDIT_POST,
-        payload: request
-    };
-}
-
-export function editPostSuccess(editPost) {
-    return {
-        type: EDIT_POST_SUCCESS,
-        payload: editPost
-    };
-}
-
-export function editPostFailure(error) {
-    return {
-        type: EDIT_POST_FAILURE,
-        payload: error
-    };
-}
-
-export function resetEditPost() {
-    return {
-        type: RESET_EDIT_POST
     }
 };
 

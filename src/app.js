@@ -15,7 +15,6 @@ import Login from './views/Login';
 import Search from './views/Search';
 import PostNew from './views/PostNew';
 import PostShow from './views/PostShow';
-import PostEdit from './views/PostEdit';
 
 import configureStore from './store/configureStore';
 
@@ -32,7 +31,6 @@ render(
 
               <Route path="/posts/new" component={PostNew} />
               <Route path="/post/:id" component={PostShow} />
-              <Route path="/post/:id/edit" component={PostEdit} />
               <Route path="/login" component={Login}/>
               <Route path="/search" component={Search}/>
             </div>

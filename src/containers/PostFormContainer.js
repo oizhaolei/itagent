@@ -53,8 +53,6 @@ function mapStateToProps(state, ownProps) {
 // reduxForm: 1st is form config, 2nd is mapStateToProps, 3rd is mapDispatchToProps
 export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
     form: 'PostNewForm',
-    fields: ['title'],
-    asyncBlurFields: ['title'],
     validate,
     onSubmit,
 })(PostForm));

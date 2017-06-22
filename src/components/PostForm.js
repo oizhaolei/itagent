@@ -25,6 +25,7 @@ class PostForm extends Component {
                     name="title"
                     multiLine={true}
                     rows={5}
+                    fullWidth={true}
                     floatingLabelText="请提出您的问题"
                     floatingLabelFixed={true}
                 />
